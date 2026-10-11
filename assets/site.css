@@ -1,0 +1,65 @@
+/* H7 Technologies site. Layout: single narrow column, header bar, sections stacked. */
+:root {
+  --ink: #0F1B2D;
+  --cobalt: #1A3FA8;
+  --sun: #FFB627;
+  --paper: #F5F7FB;
+  --surface: #FFFFFF;
+  --slate: #4A5B78;
+  --line: #DDE3EE;
+  --bg: var(--paper);
+  --fg: var(--ink);
+  --muted: var(--slate);
+  --link: var(--cobalt);
+  --display: "Readex Pro", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --body-ar: "IBM Plex Sans Arabic", "Readex Pro", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0B1422; --surface: #13203A; --fg: #EEF2F9; --muted: #A9B6CC; --line: #24324D; --link: #7FA0FF; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.65 var(--body); }
+html[lang="ar"] body { font-family: var(--body-ar); }
+html[lang="ar"] .en, html[lang="en"] .ar { display: none !important; }
+a { color: var(--link); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: 960px; margin: 0 auto; padding-inline: 20px; }
+header.bar { border-bottom: 1px solid var(--line); }
+header.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; }
+.brand { direction: ltr; display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--fg); font: 600 20px/1 var(--display); }
+.brand img { width: 36px; height: 36px; }
+.brand span { font-weight: 400; color: var(--muted); }
+nav { display: flex; align-items: center; gap: 20px; font-size: 15px; }
+nav a { color: var(--fg); text-decoration: none; }
+nav a:hover { color: var(--link); }
+.lang { font: 500 14px/1 var(--display); background: none; border: 1px solid var(--line); color: var(--fg); padding: 8px 12px; border-radius: 8px; cursor: pointer; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; text-wrap: balance; margin: 0; }
+.hero { padding-block: 72px 56px; display: grid; gap: 20px; }
+.hero h1 { font-size: clamp(36px, 6vw, 60px); font-weight: 600; letter-spacing: -0.02em; max-width: 14ch; }
+html[lang="ar"] .hero h1 { letter-spacing: 0; max-width: 16ch; }
+.hero h1 em { font-style: normal; color: var(--link); }
+.hero p { margin: 0; max-width: 58ch; color: var(--muted); font-size: 19px; }
+.cta { display: inline-flex; align-items: center; gap: 10px; width: fit-content; background: var(--ink); color: #fff; text-decoration: none; padding: 14px 20px; border-radius: 10px; font: 500 16px/1 var(--display); }
+@media (prefers-color-scheme: dark) { .cta { background: var(--cobalt); } }
+.cta .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sun); }
+section { padding-block: 48px; border-top: 1px solid var(--line); }
+.eyebrow { font: 500 13px/1 var(--display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+html[lang="ar"] .eyebrow { letter-spacing: 0; }
+.principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+.principles h3 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+.principles p { margin: 0; color: var(--muted); }
+.principles h3::before { content: ""; display: block; width: 24px; height: 4px; background: var(--sun); margin-bottom: 14px; border-radius: 2px; }
+.empty { background: var(--surface); border: 1px dashed var(--line); border-radius: 14px; padding: 28px; color: var(--muted); }
+.empty strong { color: var(--fg); font-family: var(--display); font-weight: 500; }
+footer { border-top: 1px solid var(--line); padding-block: 32px; color: var(--muted); font-size: 15px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+/* Policy pages */
+.doc { padding-block: 48px 64px; max-width: 70ch; }
+.doc h1 { font-size: clamp(30px, 5vw, 42px); font-weight: 600; margin-bottom: 8px; }
+.doc .meta { color: var(--muted); margin: 0 0 32px; font-size: 15px; }
+.doc h2 { font-size: 21px; font-weight: 600; margin: 36px 0 10px; }
+.doc p, .doc li { color: var(--fg); }
+.doc ul { padding-inline-start: 22px; }
+@media (max-width: 560px) { nav a.hide-sm { display: none; } .hero { padding-block: 48px 40px; } }
